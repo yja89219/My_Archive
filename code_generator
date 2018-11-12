@@ -1,0 +1,14 @@
+def code_generator_ray():
+    content = input('Enter your content with opening and closing quotes')
+    
+    new_content = content.split()[::-1]
+    # reverse the original content
+
+    length = len(new_content)
+    final_content = ''
+    
+    for n,item in enumerate(new_content):
+        if n < length:
+            final_content += item[::-1]+' '
+    # the for loop reverse each word in the content
+    return final_content
