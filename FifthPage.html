@@ -1,0 +1,132 @@
+<!DOCTYPE <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>JaveScrip Homewrok 5</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    <link rel='stylesheet' href="style/homework5.css">
+   
+</head>
+
+<body>
+    <div class="allpage">
+        <header>
+            <nav>
+                <ul class="manu">
+                    <li><a href="FrontPage.html">回首頁</a></li>
+                    <li><a href="FirstPage.html">九九乘法表</a></li>
+                    <li><a href="SecondPage.html">表單</a></li>
+                    <li><a href="ThirdPage.html">評點製作</a></li>
+                    <li><a href="ForthPage.html">廣告輪播</a></li>
+                    <li><a href="FifthPage.html">2010~2020年日曆</a></li>
+                </ul>
+            </nav>
+            <img src="images/nyc_view2.jpg">
+        </header>
+        <form action="">
+            <fieldset>
+                <legend>
+                    Welcome:
+                </legend>
+                <div>
+                    <h2>Please choose a date you like:</h2>
+                    Year: <select name="year" id="idyear">
+    
+                    </select>
+                    Month: <select name="month" id="idmonth">
+    
+                    </select>
+                    Day: <select name="day" id="idday">
+    
+                    </select>
+                </div>
+    
+                <div>
+                    <textarea name="printDate" id="idprintDate" cols="100" rows="10"></textarea>
+                </div>
+                <div>
+                    <input type="button" value="Enter the date" onclick="writeText()">
+                </div>
+            </fieldset>
+        </form>
+    
+        <script>
+            let flag;
+            //Create years from 2010 to 2020
+            for (let i = 2010; i <= 2020; i++) {
+                document.getElementById("idyear").insertAdjacentHTML("afterbegin", `<option value="${i}" id="idyear${i}">${i}</option>`);
+                document.getElementById("idyear").onchange = choice1;
+    
+    
+            }
+    
+            function choice1() {
+                //Create months from 1 to 12
+                for (let i = 12; i >= 1; i--) {
+                    document.getElementById("idmonth").insertAdjacentHTML("afterbegin", `<option value="${i}" id="idmonth${i}">${i}</option>`);
+                    document.getElementById("idmonth").onchange = choice2;
+                }
+            }
+    
+            function choice2() {
+    
+                let year = document.getElementById("idyear").value;
+                let month = document.getElementById("idmonth").value;
+    
+                //Create 31 days
+                for (let i = 1; i <= 31; i++) {
+                    document.getElementById("idday").insertAdjacentHTML("afterbegin", `<option value="${i}" id="idday${i}">${i}</option>`);
+                    let day = document.getElementById(`idday${i}`).value;
+                    let enterDate = `${year}/${month}/${day}`;
+                    let newDate = new Date(`${year}/${month}/${day}`);
+                    let testDate = `${newDate.getFullYear()}/${newDate.getMonth() + 1}/${newDate.getDate()}`;
+                    // alert(enterDate)
+                    // alert(testDate)
+    
+                    //delete the extra days in a month
+                    if (enterDate != testDate) {
+                        document.getElementById(`idday${i}`).remove();
+                    }
+                }
+            }
+    
+            function writeText() {
+                let year = document.getElementById("idyear").value;
+                let month = document.getElementById("idmonth").value;
+                let day = document.getElementById("idday").value;
+                textStr = `The date you chose is ${year}/ ${month}/ ${day}.`;
+                document.getElementById("idprintDate").insertAdjacentHTML("beforeend", `${textStr}\n`);
+                flag = true;
+    
+                if (flag == true) {
+                    // for (let i = 2010; i <= 2020; i++) {
+                    //     document.getElementById(`idyear${i}`).remove();
+                    // }
+                    for (let i = 1; i <= 12; i++) {
+                        document.getElementById(`idmonth${i}`).remove();
+                    }
+                    for (let i = 1; i <= 31; i++) {
+                        document.getElementById(`idday${i}`).remove();
+                    }
+                    flag = false;
+                }
+            }
+  
+        </script>
+
+        <footer>
+            <p>
+                E-amil:yja89219@gmail.com &nbsp; Tel:(0958)787-482 &nbsp; 台北市復興南路一段390號 &nbsp; &copy; 2019 All Rights
+                Reserved By Raymond C. Yang
+            </p>
+        </footer>
+    </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>JaveScrip Homewrok 3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    <link rel='stylesheet' href="style/homework3.css">
+   
+</head>
+
+<body>
+    <div class="allpage">
+        <header>
+            <nav>
+                <ul class="manu">
+                    <li><a href="FrontPage.html">回首頁</a></li>
+                    <li><a href="FirstPage.html">九九乘法表</a></li>
+                    <li><a href="SecondPage.html">表單</a></li>
+                    <li><a href="ThirdPage.html">評點製作</a></li>
+                    <li><a href="ForthPage.html">廣告輪播</a></li>
+                    <li><a href="FifthPage.html">2010~2020年日曆</a></li>
+                </ul>
+            </nav>
+            <img src="images/nyc_view2.jpg">
+        </header>
+        <div>
+            <img src="images/UES8 - edited.jpg" width="600px"><br>        
+            <img id="star1" class="s" src="Images/star.jpg">
+            <img id="star2" class="s" src="Images/star.jpg">
+            <img id="star3" class="s" src="Images/star.jpg">
+            <img id="star4" class="s" src="Images/star.jpg">
+            <img id="star5" class="s" src="Images/star.jpg">
+            <input type="button" value="reset" onclick="reset()">    
+            <h2 id="grading"></h2>
+    
+        </div>
+    
+        <script>
+    
+            //<----Second Try----->
+            let stars = ["star1", "star2", "star3", "star4", "star5"];
+            let flag1 = true;
+            let flag2 = true;
+            let flag3 = true;
+    
+            for (let i = 0; i < stars.length; i++) {
+    
+                document.getElementById(stars[i]).onmouseover = mouseOver;  //First star 事件繫結，滑鼠滑入
+                document.getElementById(stars[i]).onmouseout = mouseOut;    //事件繫結，滑鼠滑出       
+                document.getElementById(stars[i]).onmousedown = mouseDown;
+    
+    
+                function mouseOver() {
+                    if (flag1) {
+                        for (let j = i - i; j <= i; j++) {
+                            document.getElementById(stars[j]).className = "n";
+                            document.getElementById("grading").innerHTML = `Grading...`;
+                        }
+                    }
+                }
+    
+                function mouseOut() {
+                    if (flag2) {
+                        for (let j = i - i; j <= i; j++) {
+                            document.getElementById(stars[j]).className = "s";
+                            document.getElementById("grading").innerHTML = ``;
+                        }
+                    }
+                }
+                function mouseDown() {
+                    flag1 = false;
+                    flag2 = false;
+    
+                    if (flag3) {
+                        for (let j = i - i; j <= i; j++) {
+                            if (j == 0) {
+                                document.getElementById("grading").innerHTML = `One Star Grading`;
+                            } else if (j == 1) {
+                                document.getElementById("grading").innerHTML = `Two Stars Grading`;
+                            } else if (j == 2) {
+                                document.getElementById("grading").innerHTML = `Three Stars Grading`;
+                            } else if (j == 3) {
+                                document.getElementById("grading").innerHTML = `Four Stars Grading`;
+                            } else {
+                                document.getElementById("grading").innerHTML = `Five Stars Grading`;
+                            }
+                        }
+                    }
+                }
+                document.getElementById(stars[i]).onclick = afterclick;
+            }
+    
+            function afterclick() {
+                flag3 = false;
+            }
+    
+            function reset() {
+                flag1 = true;
+                flag2 = true;
+                flag3 = true;
+                mouseOut();
+            }
+        </script>
+
+        <footer>
+            <p>
+                E-amil:yja89219@gmail.com &nbsp; Tel:(0958)787-482 &nbsp; 台北市復興南路一段390號 &nbsp; &copy; 2019 All Rights
+                Reserved By Raymond C. Yang
+            </p>
+        </footer>
+    </div>
+    </div>
+
+</body>
+
+</html>

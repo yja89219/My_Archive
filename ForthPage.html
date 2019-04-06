@@ -1,0 +1,142 @@
+<!DOCTYPE <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>JaveScrip Homewrok 4</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    <link rel='stylesheet' href="style/homework4.css">
+   
+</head>
+
+<body>
+    <div class="allpage">
+        <header>
+            <nav>
+                <ul class="manu">
+                    <li><a href="FrontPage.html">回首頁</a></li>
+                    <li><a href="FirstPage.html">九九乘法表</a></li>
+                    <li><a href="SecondPage.html">表單</a></li>
+                    <li><a href="ThirdPage.html">評點製作</a></li>
+                    <li><a href="ForthPage.html">廣告輪播</a></li>
+                    <li><a href="FifthPage.html">2010~2020年日曆</a></li>
+                </ul>
+            </nav>
+            <img src="images/nyc_view2.jpg">
+        </header>
+        <form action="">
+            <fieldset>
+                <legend>
+                    <h3>Photo Gallery</h3>
+                </legend>
+                <div class="show">
+                    <img id="idshow" height="430px" />
+                </div>
+                <hr>
+                <div class="gallery" id="idgallery">
+                    <img src="Images/UES1.jpg" alt="UES1" id="pic1" height="60px" class="pics">
+                    <img src="Images/UES2.jpg" alt="UES2" id="pic2" height="60px" class="pics">
+                    <img src="Images/UES3.jpg" alt="UES3" id="pic3" height="60px" class="pics">
+                    <img src="Images/UES4.jpg" alt="UES4" id="pic4" height="60px" class="pics">
+                    <img src="Images/UES5.jpg" alt="UES5" id="pic5" height="60px" class="pics">
+                </div>
+                <div class="showButton">
+                    <img src="Images/backward.jpeg" id="idback" width="50px" onclick="backf()" style="cursor:pointer">
+                    <img src="Images/pause.jpeg" id="idpauseplay" width="50px" onclick="pauseShow()" style="cursor:pointer">
+                    <img src="Images/forward.jpeg" id="idforward" width="50px" onclick="nextf()" style="cursor:pointer">
+                </div>
+            </fieldset>
+        </form>
+        <script>
+            let i = 0;
+            let flag = true;
+    
+            function showTime() {
+                flag = true;
+                if (flag) {
+                    i++;
+                    let j = i;
+                    if (j > 1) {
+                        document.getElementById(`pic${j - 1}`).className = "pics";
+                    }
+                    if (i > 5) {
+                        i = 1;
+                    }
+                    document.getElementById("idshow").src = `Images/UES${i}.jpg`;
+                    document.getElementById(`pic${i}`).className = "picsborder";
+                }
+            }
+    
+            function backf() {
+                i--;
+                let j = i;
+                if (j < 1) {
+                    j = 1;
+                    document.getElementById(`pic${j}`).className = "pics";
+                } else{
+                    document.getElementById(`pic${j+1}`).className = "pics";
+                }
+                if (i < 1) {
+                    i = 5;
+                }
+                document.getElementById("idshow").src = `Images/UES${i}.jpg`;
+                document.getElementById(`pic${i}`).className = "picsborder";           
+            }
+            function nextf() {
+                i++;
+                let j = i;
+                if (j > 1) {
+                    document.getElementById(`pic${j - 1}`).className = "pics";
+                }
+                if (i > 5) {
+                    i = 1;
+                }
+                document.getElementById("idshow").src = `Images/UES${i}.jpg`;
+                document.getElementById(`pic${i}`).className = "picsborder";
+            }
+    
+            for (let j = 1; j < 6; j++) {
+                document.getElementById(`pic${j}`).style.cursor = "pointer";
+                document.getElementById(`pic${j}`).onclick = clickshow;
+    
+                function clickshow() {
+                    document.getElementById("idshow").src = `Images/UES${j}.jpg`;
+                    document.getElementById(`pic${j}`).className = "picsborder";
+                    document.getElementById(`pic${i}`).className = "pics";
+                    i = j;
+                }
+            }
+    
+            showTime();
+    
+            t = window.setInterval(showTime, 3000);
+    
+            function pauseShow() {
+                if (flag) {
+                    flag = false;
+                    window.clearInterval(t);
+                    document.getElementById("idpauseplay").src = "Images/play.jpeg";
+                } else {
+                    flag = true;
+                    document.getElementById("idpauseplay").src = "Images/pause.jpeg";
+                    t = window.setInterval(showTime, 3000)
+                }
+            }
+    
+        </script>
+
+        <footer>
+            <p>
+                E-amil:yja89219@gmail.com &nbsp; Tel:(0958)787-482 &nbsp; 台北市復興南路一段390號 &nbsp; &copy; 2019 All Rights
+                Reserved By Raymond C. Yang
+            </p>
+        </footer>
+    </div>
+    </div>
+
+</body>
+
+</html>

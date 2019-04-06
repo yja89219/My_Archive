@@ -1,0 +1,53 @@
+<!DOCTYPE <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>JaveScrip Homewrok 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    <link rel='stylesheet' href="style/homework1.css">
+   
+</head>
+
+<body>
+    <div class="allpage">
+        <header>
+            <nav>
+                <ul class="manu">
+                    <li><a href="FrontPage.html">回首頁</a></li>
+                    <li><a href="FirstPage.html">九九乘法表</a></li>
+                    <li><a href="SecondPage.html">表單</a></li>
+                    <li><a href="ThirdPage.html">評點製作</a></li>
+                    <li><a href="ForthPage.html">廣告輪播</a></li>
+                    <li><a href="FifthPage.html">2010~2020年日曆</a></li>
+                </ul>
+            </nav>
+            <img src="images/nyc_view2.jpg">
+        </header>
+        <table>
+            <script>
+                for (i = 1; i <= 9; i++) {
+                    document.write(`<tr>`);
+                    for (j = 2; j <= 9; j++) {
+                        document.write(`<td>${j} x ${i} = ${i * j}</td>`);
+                    }
+                    document.write(`</tr>`);
+                }
+            </script>
+        </table>
+
+        <footer>
+            <p>
+                E-amil:yja89219@gmail.com &nbsp; Tel:(0958)787-482 &nbsp; 台北市復興南路一段390號 &nbsp; &copy; 2019 All Rights
+                Reserved By Raymond C. Yang
+            </p>
+        </footer>
+    </div>
+    </div>
+
+</body>
+
+</html>
